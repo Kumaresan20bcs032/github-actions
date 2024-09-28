@@ -1,4 +1,4 @@
-# this workflow is learning and testing purpose
+# this workflow is learning and testing purpose.
 name: Deploy to nodejs server
 
 on:
