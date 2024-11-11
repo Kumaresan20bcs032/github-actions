@@ -21,12 +21,11 @@ jobs:
           cache: "npm"
       - name: a
         run: echo "deploy cicd pipeline executed"
-      - name: b
-        run: npm run build --if-present
-      - name: c
-        run: |
-          echo "hello"
-          echo "he"
-
-      - name: d
-        run: echo "use"
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: whoami
