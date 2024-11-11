@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [22.x]
 
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +26,10 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: 22
           port: ${{ secrets.PORT }}
-          script: whoami
+          script: |
+            cd /home/ubuntu/github-actions &&
+            git pull origin main &&
+            npm install &&
+            npm start
