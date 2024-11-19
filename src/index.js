@@ -7,9 +7,12 @@ app.get("/", (req, res) => {
 })
 
 app.get("/get", (req, res) => {
-    return res.json({ message: "Application api working" });
+    return res.json({ message: "The get api will be called" });
 })
 
+app.get("/node", (req, res) => {
+    return res.json({ message: "The node.js api will be called" });
+})
 
 const PORT = process.env?.PORT ?? 3000;
 app.listen(PORT, () => {
