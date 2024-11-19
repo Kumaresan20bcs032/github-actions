@@ -21,9 +21,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           
-      - name: Install dependencies
-        run: npm install
-
       - name: Execute remote SSH commands
         uses: appleboy/ssh-action@v1.1.0
         with:
@@ -33,4 +30,5 @@ jobs:
           port: 22
           script: |
             cd /home/ubuntu/github-actions &&
-            git pull origin main
+            git pull origin main &&
+            npm install
